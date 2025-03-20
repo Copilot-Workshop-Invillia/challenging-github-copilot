@@ -1,162 +1,119 @@
-<h1 align="center">Challenging SQL with GitHub Copilot</h1>
-<h5 align="center">Push the limits of GitHub Copilot in complex workflows</h3>
+<h1 align="center">Desafiando SQL com GitHub Copilot</h1>
+<h5 align="center">Leve o GitHub Copilot ao limite em fluxos de trabalho complexos</h5>
 
-<p align="center">
-  <a href="#mega-prerequisites">Prerequisites</a> •
-  <a href="#books-resources">Resources</a> •
-  <a href="#learning-objectives">Learning Objectives</a>
-</p>
+- **Para quem é**: Qualquer profissional de tecnologia que deseja aprimorar técnicas básicas ao trabalhar com o GitHub Copilot. Engenheiros de Software, Engenheiros de Dados, Cientistas de Dados e qualquer pessoa que trabalhe com bases de código ou projetos de código desafiadores.
+- **O que você aprenderá**: Técnicas avançadas do GitHub Copilot, especialmente úteis em problemas complexos. Essas técnicas e padrões podem ser aplicados em problemas difíceis ou quando o GitHub Copilot não fornecer a melhor solução.
+- **O que você construirá**: Um banco de dados com dados altamente específicos e consultas avançadas, validadas e testadas unitariamente.
 
-- **Who is this for**: Any tecnologist that is looking to advance basic techniques when working with GitHub Copilot. Software Engineers, Data Engineers, Data Scientists, and anyone working with challenging codebases or code projects.
-- **What you'll learn**: You'll use advanced GItHub Copilot techniques that are specifically useful when working with challenging problems. These techniques and patterns can be applied to difficult problems and when GitHub Copilot isn't providing the best answer.
-- **What you'll build**: A database with highly specific data with advanced queries that are unit tested for validation and correctness.
+## Objetivos de Aprendizado
 
-> [!NOTE]
-> Looking for the workshop? Head over to [the workshop directory](./workshop)
+Neste workshop, você irá:
 
-## Learning Objectives
+- Utilizar técnicas avançadas de interação com o GitHub Copilot para lidar com problemas complexos relacionados a consultas SQL.
+- Iterar, validar e refinar respostas para obter sugestões melhores e mais precisas.
+- Aplicar conceitos gerais que podem melhorar as sugestões e escolher estratégias diferentes para obter resultados mais eficazes.
+- Compreender claramente técnicas ruins de criação de prompts (instruções iniciais) e como elas podem afetar drasticamente os resultados do GitHub Copilot.
 
-In this workshop, you will:
+## Pré Requisitos
 
-  - Use advanced GitHub Copilot interaction techniques to deal with complex problems regarding SQL queries.
-  - Iterate, validate, and refine answers to get better and more accurate suggestions
-  - Apply generic concpets that can improve suggestions and select from different strategies that can yield better results.
-  - Get a clear understanding on poor prompting techniques, and how these can
-    affect drastically the output from GitHub Copilot.
+Antes de participar do workshop, há apenas um pré-requisito: possuir uma conta pública no GitHub. Todos os recursos, dependências e dados fazem parte do próprio repositório. Certifique-se de ter a licença do GitHub Copilot, uma versão de teste ou a versão gratuita.
 
-## :mega: Prerequisites
+## Principais aprendizados
 
-Before joining the workshop, there is only one prerequisite: you must have a public GitHub account. All resources, dependencies, and data are part of the repository itself. Make sure you have your GitHub Copilot license, trial, or the free version.
+### 1. Defina objetivos e requisitos claros
 
+*O que precisa ser alcançado?*
 
-## Main takeaways
+Comece entendendo claramente o objetivo final. No caso das consultas SQL, trata-se de agregação de dados, filtragem, junção, etc.? Sempre pergunte: o que preciso que esta consulta faça?
 
-### 1. Define Clear Objectives and Requirements
+*Quais são as restrições?*
 
-*What needs to be achieved?*
+Identifique limitações ou exclusões. Por exemplo, em uma consulta SQL, talvez você precise excluir tipos específicos de lote ou dados. De forma mais ampla, as restrições podem incluir limitações de tempo, desempenho ou regras específicas a serem seguidas.
 
-Start by understanding the end goal clearly. What is the result you're after? In the case of SQL queries, is it about data aggregation, filtering, joining, etc.? Always ask: What do I need this query to accomplish?
+Seja preciso quanto ao escopo do problema. Se estiver inseguro, comece amplo e refine progressivamente os detalhes.
 
-*What are the constraints?*
+### 2. Divida o problema em componentes
 
-Identify limitations or exclusions. For example, in the SQL query, you want to exclude specific batch types or data. In a broader sense, constraints might also include things like time restrictions, performance limits, or rules you need to follow.
+Divida o problema em partes menores e gerenciáveis. Por exemplo, ao decompor uma consulta SQL complexa:
+- Filtragem dos dados (ex: dados do dia atual).
+- Exclusões específicas (ex: tipos "off-us" ou "offset").
+- Agregação (ex: somar valores).
 
-> [!TIP]
-> Focus on being precise with the scope of the problem. If you're unsure, start broad and then progressively narrow down the details.
+Garanta que cada condição seja aplicada passo a passo. Em programação, decompor uma função complexa em funções auxiliares menores facilita a escrita e a depuração.
 
-### 2. Break Down the Problem into Components
+Decomposição é uma ótima maneira de lidar com a complexidade, permitindo focar em pequenas tarefas por vez.
 
-Decompose the problem into smaller, manageable pieces. For example, breaking down a complex SQL query:
-- Data filtering (e.g., today's data).
-- Data exclusions (e.g., "off-us" or "offset").
-- Aggregation (e.g., summing amounts).
+### 3. Aproveite vocabulário e contexto específicos do domínio
 
-Ensure you're applying each condition step-by-step. In programming, breaking down a complex function into smaller helper functions can make it easier to write and debug.
+Use terminologia adequada ao domínio do problema. Seja escrevendo consultas SQL, código ou criando algoritmos, a familiaridade com o vocabulário técnico facilita a criação de instruções precisas para ferramentas como o Copilot ou na comunicação com outras pessoas.
 
-> [!TIP]
-> Decomposition is a great way to deal with complexity, as it allows you to focus on one small task at a time.
+Quanto mais preciso o vocabulário e o contexto, mais fácil será a compreensão e a geração de soluções por humanos e ferramentas.
 
-### 3. Leverage Domain-Specific Vocabulary and Context
+### 4. Itere e refine a solução
 
-Use the appropriate terminology for the problem domain. Whether you're writing SQL queries, working with code, or designing an algorithm, being familiar with the domain vocabulary helps you form more accurate instructions for tools like Copilot or while communicating with others.
+Comece simples e depois refine. Em problemas complexos, as primeiras tentativas raramente são perfeitas. Comece com uma solução básica e construa sobre ela progressivamente.
 
+Numa consulta SQL, comece selecionando todos os dados do dia e adicione filtros, exclusões e agregações em etapas.
 
-> [!TIP]
-> The more precise the vocabulary and context you use, the easier it is for both humans and tools to understand and generate solutions.
+Teste e valide cada iteração para garantir que o resultado esteja caminhando na direção certa.
 
-### 4. Iterate and Refine the Solution
-Start simple, then refine. In complex problems, initial attempts are rarely perfect. Start by generating a basic solution and progressively build on it.
+### 5. Use exemplos para esclarecer requisitos
 
-In a SQL query, you might first write a query that selects all data for today, then add filters, exclusions, and aggregation in phases.
+Ao criar prompts para modelos de IA ou explicar problemas, forneça exemplos. Exemplos ajudam a ilustrar expectativas, deixando claro o que precisa ser feito.
 
-> [!TIP]
-> With every iteration, test and verify against expected outcomes to ensure the result is moving in the right direction.
+Por exemplo, nas consultas SQL, utilize dados de exemplo e explique como o resultado esperado deve aparecer.
 
-### 5. Use Examples to Clarify Requirements
-When creating prompts for AI models or explaining problems, provide examples. An example can illustrate your expectations, making the task clearer for anyone or anything (including tools like GitHub Copilot) involved in solving the problem.
+Resolver problemas por exemplos ajuda a alinhar o entendimento, especialmente útil em tarefas ambíguas.
 
-For instance, in SQL queries, you can use sample data and explain how the output should look.
+### 6. Identifique padrões e reutilize soluções
 
-> [!TIP]
-> Example-driven problem-solving helps align understanding. It's especially useful for ambiguous tasks.
+Reconheça padrões comuns no seu problema e reutilize soluções aplicáveis. Consultas SQL frequentemente apresentam padrões comuns (agregação, filtragem, agrupamento). Ao identificá-los, reutilize e modifique esses blocos de construção.
 
-### 6. Identify Patterns and Reuse Solutions
-Recognize common patterns in your problem and reuse solutions where applicable. For example, SQL queries often have common patterns (such as aggregation, filtering, or grouping), so once you identify them, you can reuse and modify these building blocks.
+Reconhecer padrões é sinal de experiência. Ao enfrentar problemas semelhantes, você começará a notar similaridades que agilizam o processo.
 
-In code or other technical tasks, identifying reusable functions or logic can save time and reduce errors.
+### 7. Utilize restrições e casos limites para robustez
 
-> [!TIP]
-> Recognizing patterns is a hallmark of experience. As you encounter similar problems repeatedly, you'll start to see similarities that can speed up your process.
+Considere casos extremos e exceções. Problemas complexos geralmente envolvem o tratamento de dados ideais e também casos-limite ou valores discrepantes que poderiam quebrar soluções ingênuas.
 
-### 7. Use Constraints and Edge Cases for Robustness
-Think about edge cases and exceptions. Complex problems often involve handling not just the "ideal" data, but also the "edge" or "outlier" cases that might break a naive solution. Ensure that your prompt or solution accounts for these edge cases.
+Em SQL, isso inclui garantir que datasets vazios, valores nulos ou tipos inesperados não causem erros.
 
-In SQL, this could involve ensuring that empty datasets, null values, or unexpected data types don’t cause errors.
+Analisar casos-limite gera soluções mais resilientes e generalizadas.
 
-> [!TIP]
-> Thinking through edge cases helps you build more resilient, generalized solutions.
+### 8. Utilize ferramentas de forma eficaz
 
-### 8. Use Tools Effectively
-Whether you’re using GitHub Copilot, a query builder, or another form of automation, leverage the tools at your disposal but make sure you're guiding them with the right context. Tools are great for speeding up the generation, but they still need well-structured inputs and validation from you.
+Seja GitHub Copilot ou outra automação, use ferramentas ao seu favor, guiando-as com o contexto correto. Ferramentas aceleram a criação, mas precisam de entradas estruturadas e validação.
 
-For Copilot, ensure that your prompts are detailed, but concise. Tools often work best when given structured input that leaves little ambiguity.
+Para o Copilot, forneça prompts detalhados e concisos.
 
-> [!TIP]
-> Be specific with your tools, but also check results, as tools might not always fully understand context unless properly guided.
+Seja específico com as ferramentas, mas sempre valide resultados, pois nem sempre captam totalmente o contexto sem orientação adequada.
 
-### 9. Seek Feedback and Collaboration
-When tackling a complex task, especially one that involves code or queries, collaboration and feedback are crucial. Don’t hesitate to ask peers or communities for insights or review.
+### 9. Busque feedback e colaboração
 
-For example, when creating a complex SQL query, someone else might see potential issues or better optimization strategies that you might have missed.
+Em tarefas complexas, especialmente envolvendo código ou consultas, colaboração e feedback são cruciais. Não hesite em pedir insights ou revisões.
 
-> [!TIP]
-> Collaboration often brings new perspectives, reducing blind spots.
+Ao criar uma consulta SQL complexa, colegas podem perceber problemas ou estratégias melhores que você não viu.
 
-### 10. Test and Validate
-Testing and validation are key to ensuring that your solution works as expected. In the case of SQL queries, you might test the query with various edge cases and compare it against expected outputs.
+Colaboração traz novas perspectivas e reduz pontos cegos.
 
-Testing ensures that both the expected and unexpected situations are handled correctly.
+### 10. Teste e valide
 
-> [!TIP]
-> Always have a validation step built into your process to catch mistakes early.
+Testar e validar são essenciais para garantir que a solução funciona corretamente. Teste consultas SQL com diversos casos-limite e compare os resultados com os esperados.
 
-Generalization for Other Use Cases:
-For writing code or algorithms: The same concepts apply when generating functions, classes, or workflows. Clearly define input, expected output, edge cases, and iterate to refine.
+Inclua sempre uma etapa de validação no seu processo para detectar erros cedo.
 
-For AI model prompts: When asking for something complex (like generating code, text, or designs), give clear objectives, break down the problem, provide context, and iterate.
+## Recursos
 
-For design or content generation: Define the purpose, break down design elements, and provide examples or inspiration, then refine based on feedback.
-
-Final Thoughts:
-Complex generation problems often involve a balance of clarity, decomposition, iteration, and validation. Whether it's a SQL query or any other task, keeping these concepts in mind will allow you to generate more accurate, efficient, and reliable results.
-
-
-
-## :books: Resources
-
-Although not required, some of the features this workshop covers are in these Microsoft Learning modules:
+Embora não obrigatório, algumas funcionalidades abordadas estão nos módulos da Microsoft Learning:
 
 - [Code with GitHub Codespaces](https://learn.microsoft.com/training/modules/code-with-github-codespaces/)
 - [Using advanced GitHub Copilot features](https://learn.microsoft.com/training/modules/advanced-github-copilot/)
 
-## Contributing
+## Contribuições
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+Este projeto aceita contribuições e sugestões. Para detalhes, visite https://cla.opensource.microsoft.com.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+Este projeto adota o [Código de Conduta de Código Aberto da Microsoft](https://opensource.microsoft.com/codeofconduct/).
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Marcas registradas
 
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
-trademarks or logos is subject to and must follow
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+Este projeto pode conter marcas registradas ou logotipos sujeitos às políticas de terceiros ou às [Diretrizes de Uso de Marca Registrada e Marca da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).

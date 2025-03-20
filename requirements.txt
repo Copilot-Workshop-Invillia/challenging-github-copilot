@@ -5,3 +5,4 @@ jinja2
 # Test dependencies
 httpx
 pytest
+pytest-cov

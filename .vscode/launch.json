@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Main",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/challenging-github-copilot/webapp/main.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Setup",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/challenging-github-copilot/setup.py",
+            "console": "integratedTerminal"
+        }
+    ]
+}

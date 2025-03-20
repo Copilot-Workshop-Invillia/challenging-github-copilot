@@ -1,8 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
@@ -10,21 +7,10 @@
 		  "VARIANT": "3.12-bullseye"
 		}
 	  },
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": ". /home/vscode/venv/bin/activate",
-
-	// Configure tool-specific properties.
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
-			  "workshop/README.md",
-			  "workshop/main.py",
+			  "README.md"
 			]
 		},
 		"vscode": {
@@ -37,13 +23,14 @@
 			  }
 			},
 			"extensions": [
-			  "ms-python.python",
-			  "ms-python.vscode-pylance",
-			  "GitHub.copilot"
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"GitHub.copilot",
+				"qwtel.sqlite-viewer"
 			]
 		}
+	},
+	"features": {
+		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
 	}
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
 }
