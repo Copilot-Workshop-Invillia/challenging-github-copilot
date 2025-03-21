@@ -18,6 +18,12 @@ Neste workshop, você irá:
 
 Antes de participar do workshop, há apenas um pré-requisito: possuir uma conta pública no GitHub. Todos os recursos, dependências e dados fazem parte do próprio repositório. Certifique-se de ter a licença do GitHub Copilot, uma versão de teste ou a versão gratuita.
 
+## Como executar
+
+- Para criar o arquivo de ratings.db execute o setup.py na raiz.
+- Utilize o máximo do poder do copilot para aprender sobre essa aplicação e como resolver o problema de otimizar a consulta de vinhos.
+- Caso necessite pode remover o arquivo ratings.db e recria-lo a qualquer momento utilizando o setup.py
+
 ## Principais aprendizados
 
 ### 1. Defina objetivos e requisitos claros

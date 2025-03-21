@@ -28,4 +28,4 @@ FROM WinePerformance wp
 JOIN RollingAvg ra
     ON wp.region = ra.region AND wp.variety = ra.variety AND wp.wine_year = ra.wine_year
 ORDER BY wp.region, wp.variety, wp.wine_year DESC, LENGTH(wp.name) DESC
-LIMIT 50;
+LIMIT 1000;
